@@ -1,6 +1,20 @@
+# Minimal Neovim Configuration
+
+## Prerequisites
+Ensure the following system dependencies are installed before launching Neovim to prevent plugin initialization errors:
+
+* **Neovim (v0.9.0+)**: The core editor.
+* **Git**: Required by the `lazy.nvim` package manager to clone and update plugins.
+* **C Compiler (`gcc`, `clang`, or `build-essential`)**: Strictly required by `nvim-treesitter` to compile local language parsing trees.
+* **Node.js & npm**: Required by `mason.nvim` to install and execute most Language Server Protocols (LSPs).
+* **Ripgrep (`rg`)**: Required by `telescope.nvim` to power the Live Grep text search functionality.
+* **Nerd Font** *(Optional)*: Recommended to ensure file and UI icons render correctly via `nvim-web-devicons`.
+
+---
+
 ## Keybindings & Usage Guide
 
-This Neovim configuration is designed to be minimal, fast, and keyboard-driven. 
+This Neovim configuration is designed to be minimal, fast, and keyboard-driven.
 The `<leader>` key is mapped to `Space`.
 
 ### Window Navigation & Splits
@@ -21,6 +35,14 @@ The `<leader>` key is mapped to `Space`.
 | `a` | Add new file/folder (append `/` to name for folder) |
 | `d` | Delete file/folder |
 | `r` | Rename file/folder |
+
+### Fuzzy Finder (`telescope.nvim`)
+*Note: The Live Grep functionality requires `ripgrep` to be installed on your system.*
+| Keystroke | Action |
+| :--- | :--- |
+| `<leader>ff` | Find files within the current working directory |
+| `<leader>fg` | Live grep (search for text content across all files) |
+| `<leader>fb` | Find and switch between currently open buffers |
 
 ### LSP & Code Navigation
 *Note: These mappings are only active in buffers attached to a Language Server.*
@@ -46,6 +68,9 @@ The `<leader>` key is mapped to `Space`.
 | `:term` | Open terminal in current buffer/split |
 | `<Esc>` | Exit terminal input mode (allows window navigation via `<C-h/j/k/l>`) |
 | `i` / `a` | Enter terminal input mode |
+
+### UI & Feedback
+* **Statusline (`lualine.nvim`):** A global statusline is active at the bottom of the editor. It automatically displays the current editor mode, active Git branch, file status (read-only/modified), LSP diagnostics (errors/warnings), and exact cursor coordinates. 
 
 ### Plugin Management (`lazy.nvim`)
 | Keystroke / Command | Action |
