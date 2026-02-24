@@ -14,3 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Tell Lazy to load everything in the lua/plugins/ folder
 require("lazy").setup("plugins")
+
+vim.opt.tabstop = 4      -- A TAB character looks like 4 spaces
+vim.opt.shiftwidth = 4   -- Size of an indent
+vim.opt.softtabstop = 4  -- Number of spaces tabs count for while editing
+

@@ -37,12 +37,16 @@ The `<leader>` key is mapped to `Space`.
 | `r` | Rename file/folder |
 
 ### Fuzzy Finder (`telescope.nvim`)
-*Note: The Live Grep functionality requires `ripgrep` to be installed on your system.*
+*Note: The Live Grep functionality requires `ripgrep` to be installed on your system. When the search window is open (Insert Mode), custom navigation keys are active.*
 | Keystroke | Action |
 | :--- | :--- |
 | `<leader>ff` | Find files within the current working directory |
 | `<leader>fg` | Live grep (search for text content across all files) |
 | `<leader>fb` | Find and switch between currently open buffers |
+| `<C-j>` | Select next item in the search results |
+| `<C-k>` | Select previous item in the search results |
+| `<CR>` | Open the selected file |
+| `<Esc>` / `<C-c>` | Close the search window |
 
 ### LSP & Code Navigation
 *Note: These mappings are only active in buffers attached to a Language Server.*
@@ -70,7 +74,7 @@ The `<leader>` key is mapped to `Space`.
 | `i` / `a` | Enter terminal input mode |
 
 ### UI & Feedback
-* **Statusline (`lualine.nvim`):** A global statusline is active at the bottom of the editor. It automatically displays the current editor mode, active Git branch, file status (read-only/modified), LSP diagnostics (errors/warnings), and exact cursor coordinates. 
+* **Statusline (`lualine.nvim`):** A global statusline is active at the bottom of the editor. It automatically displays the current editor mode, active Git branch, file status (read-only/modified), LSP diagnostics (errors/warnings), and exact cursor coordinates.
 
 ### Plugin Management (`lazy.nvim`)
 | Keystroke / Command | Action |
