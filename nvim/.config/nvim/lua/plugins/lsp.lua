@@ -1,22 +1,28 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "mason-org/mason.nvim",
-    "mason-org/mason-lspconfig.nvim",
-    "hrsh7th/cmp-nvim-lsp", -- Add this so we can grab its capabilities
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
     require("mason").setup()
     
-    require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls" }, 
-      automatic_enable = true, 
-    })
-    
-    -- NEW: Tell Neovim to broadcast nvim-cmp capabilities to EVERY LSP server natively
+    -- Grab the autocomplete capabilities from nvim-cmp
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    vim.lsp.config("*", {
-      capabilities = capabilities,
+
+    require("mason-lspconfig").setup({
+      -- Add the servers you actually code in here!
+      ensure_installed = { "lua_ls", "clangd" }, 
+      
+      -- This magically wires up autocomplete for EVERY server Mason installs
+      handlers = {
+        function(server_name)
+          require("lspconfig")[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+      }
     })
     
     -- LSP Keymaps
