@@ -32,6 +32,7 @@ return {
         local opts = { buffer = event.buf }
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+	vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, opts)
       end,
     })
   end,
