@@ -12,3 +12,10 @@ map("n", "<leader>-", "<C-w>s", { desc = "Split window horizontally" })
 
 -- Make exiting the built-in terminal easier (Esc instead of the default Ctrl-\ Ctrl-n)
 -- map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+-- Scroll half page down/up and center the cursor
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+
+map("n", "n", "nzzzv", { desc = "Next search result and center" })
+map("n", "N", "Nzzzv", { desc = "Prev serch result and center" })
